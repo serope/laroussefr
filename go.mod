@@ -1,4 +1,4 @@
-module laroussefr
+module github.com/serope/laroussefr
 
 go 1.15
 
