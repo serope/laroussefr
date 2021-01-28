@@ -557,7 +557,7 @@ func findHeader(doc *html.Node) (Header, error) {
 	return head, nil
 }
 
-// findHeaderTexte returns a word's text (e.g. vert -> []string{"vert", "verte"} ).
+// findHeaderTexte returns a word's text.
 func findHeaderTexte(doc *html.Node) (string, error) {
 	nodes := scrape.FindAll(doc, match.HeaderTexteNode)
 	if len(nodes) == 0 {
