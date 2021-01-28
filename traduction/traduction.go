@@ -1,49 +1,5 @@
 // Package traduction provides functions for web scraping Larousse's French
 // and English bilingual dictionaries.
-// 
-// 
-// Page Layout Example
-// 
-// Consider the French->English page for "court"
-// (https://www.laroussefr.fr/dictionnaires/francais-anglais/court/19844).
-//
-// A page consists of a page ID (shown in its URL; 19844 in this case), a list
-// of words, and a list of similar words in a scrolling carousel at the bottom.
-// This page has 7 words, starting with "court (f courte)" and ending with "tout
-// court". Its similar word carousel contains "courtage", "courtaud", etc.
-// 
-// A word consists of a header and a list of subheaders.
-// 
-// A header contains a word's details, such as text and pronunciation. The first
-// word's header is "court (f courte) [kur, kurt] \ adjectif".
-// 
-// A subheader is black, boldfaced, all-caps text which contains a numbered list
-// of items. The first word has 3 subheaders: "[DANS L'ESPACE]", "[DANS LE
-// TEMPS]", and "[FAIBLE, INSUFFISANT]".
-// 
-// Within a subheader is a numbered list of items. The first subheader,
-// "[DANS L'ESPACE]", has 3 items.
-// 
-// An item has two parts, meanings and phrases.
-//
-// A meaning is red text in the original language, often (but not always)
-// followed by boldfaced blue text in the target language. The first meaning on
-// this page is "[en longueur - cheveux, ongles] \ short". Red text is written
-// in a combination of square brackets, parentheses, and all caps; see the
-// Meaning type for their distinctions.
-// 
-// A phrase is an example phrase, which consists of black text in the original
-// language followed by blue text in the target language. It may also have red
-// text like a meaning does. The 2nd phrase on this page is "la jupe est trop
-// courte de trois centimètres \ the skirt is three centimetres too short".
-// 
-// A phrase sometimes has a list of subphrases in an alphabet-bullet list. The
-// first phrase on this page, "court sur pattes", has two subphrases.
-// 
-// A phrase may also be an "expression", which means it's displayed in a blue
-// box with the word "EXPR" in the corner. The first expression on this page is
-// "cycle court \ course of studies leading to qualifications exclusive of
-// university entrance".
 package traduction
 
 import (
