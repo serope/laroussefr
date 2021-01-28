@@ -239,14 +239,14 @@ func (w Word) equalSubheaders(u Word) (string, bool) {
 // Text is the word's string.
 //
 // TextAlt is the word's alternate string, if any, shown in parentheses. For
-// French (and other Romance languages), this is typically the feminine form of
-// a masculine word or vice-versa.
+// French (and other Romance languages supported by Larousse), this is typically
+// the feminine form of a masculine word or vice-versa.
 // 
 // Phonetic is the IPA pronunciation text shown in small square brackets.
 //
 // Audio is the URL of the audio clip, if available.
 // 
-// Type is the word's grammatical type (e.g. adjectif).
+// Type is the word's grammatical type.
 type Header struct {
 	Text     string
 	TextAlt  string
@@ -274,8 +274,8 @@ func (h Header) equals(i Header) (string, bool) {
 	return "", true
 }
 
-// Type Subheader represents a subheader. The vast majority of Words will have
-// a single Subheader with an empty Title.
+// Type Subheader represents a subheader. Most words in the French-English
+// dictionary have a single Subheader with an empty Title.
 type Subheader struct {
 	Title string
 	Items []Item
