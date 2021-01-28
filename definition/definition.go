@@ -46,10 +46,10 @@ import (
 	"fmt"
 	"strings"
 	
-	"scraper/laroussefr"
-	"scraper/laroussefr/scrapeutil"
-	"scraper/laroussefr/definition/match"
-	"scraper/laroussefr/definition/parse"
+	"github.com/serope/laroussefr"
+	"github.com/serope/laroussefr/scrapeutil"
+	"github.com/serope/laroussefr/definition/match"
+	"github.com/serope/laroussefr/definition/parse"
 	
 	"golang.org/x/net/html"
 	"github.com/yhat/scrape"

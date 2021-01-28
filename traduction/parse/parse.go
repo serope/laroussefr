@@ -4,7 +4,7 @@ package parse
 import (
 	"strings"
 	
-	"scraper/laroussefr"
+	"github.com/serope/laroussefr"
 	
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"

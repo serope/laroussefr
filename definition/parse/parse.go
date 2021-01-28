@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"strings"
 	
-	"scraper/laroussefr"
-	"scraper/laroussefr/definition/match"
+	"github.com/serope/laroussefr"
+	"github.com/serope/laroussefr/definition/match"
 	
 	"github.com/yhat/scrape"
 	"golang.org/x/net/html"

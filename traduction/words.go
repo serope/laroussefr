@@ -7,8 +7,8 @@ import (
 	"strings"
 	"unicode"
 	
-	"scraper/laroussefr"
-	"scraper/laroussefr/traduction/parse"
+	"github.com/serope/laroussefr"
+	"github.com/serope/laroussefr/traduction/parse"
 	
 	"github.com/yhat/scrape"
 	"golang.org/x/net/html/atom"
