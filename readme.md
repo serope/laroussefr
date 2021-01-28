@@ -2,6 +2,8 @@
 
 Package laroussefr provides functions for web scraping [Larousse](https://www.larousse.fr).
 
+[![godocs.io](https://godocs.io/github.com/serope/laroussefr?status.svg)](https://godocs.io/github.com/serope/laroussefr)
+
 ### Example: Definition
 
 ```go
