@@ -315,14 +315,6 @@ func (r Relation) equalContraires(q Relation) (string, bool) {
 	return "", true
 }
 
-func (r Relation) hasSynonymes() bool {
-	return len(r.Synonymes) > 0
-}
-
-func (r Relation) hasContraires() bool {
-	return len(r.Contraires) > 0
-}
-
 // Type Definition represents an item from a page's DÉFINITIONS section.
 // 
 // Texte is the definition text, typically with the meaning in black font and
@@ -352,7 +344,7 @@ func (d Definition) equals(e Definition) (string, bool) {
 
 // Type Expression represents an item from a page's EXPRESSIONS section.
 // 
-// Textes is the expression text.
+// Texte is the expression text.
 // 
 // RedBig is the definition's context written in large, red, boldfaced text
 // above the definition text.
@@ -582,8 +574,7 @@ func findHeaderTexte(doc *html.Node) (string, error) {
 	return out, nil
 }
 
-// findHeaderAudio returns a word's audio URL (e.g. vert -> 
-// https://laroussefr.fr/dictionnaires-prononciation/francais/tts/64636fra2).
+// findHeaderAudio returns a word's audio URL.
 func findHeaderAudio(doc *html.Node) (string, error) {
 	n, ok := scrape.Find(doc, match.HeaderAudioNode)
 	if !ok {
