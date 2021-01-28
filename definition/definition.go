@@ -31,7 +31,7 @@
 // 
 // HOMONYMES
 // 
-// A list of homonyms and their types, of provided.
+// A list of homonyms and their types, if provided.
 // 
 // DIFFICULTÉS
 // 
