@@ -4,47 +4,42 @@
 // 
 // Page Layout Example
 // 
-// Consider the page for "vert"
-// (https://www.laroussefr.fr/dictionnaires/francais/vert).
-// 
 // Header section
 // 
-// This section shows:
-//   1. the word, both male and female forms if applicable ("vert, verte")
-//   2. its type ("adjectif")
-//   3. an optional footnote, usually historical trivia ("latin viridis")
-//   4. an audio link
+// The header section shows the word's forms (e.g. "beau" has 3 forms: "beau",
+// "belle", and "bel"), its type (e.g. "adjectif"), and an audio link.
 // 
 // DÉFINITIONS
 // 
 // A list of definitions.
 // A definition may have a sample phrase following it, separated by a French
-// semicolon (" : ").
-// It may also have a context, written in red font above it. Note that one
-// context may have multiple definitions in a numbered list.
+// semicolon (" : "). It may also have a context specified in red font written
+// above or before the text.
 //
 // EXPRESSIONS
 // 
 // A list of common expressions; each expression is in blue font, followed by
-// an explanation in normal font, separated by a comma.
-// Like definitions, an expression can have a context with multiple items.
+// an explanation in normal font, separated by a comma. Like definitions, an
+// expression can have a context specified in red font written above or before
+// the text.
 //
 // SYNONYMES ET CONTRAIRES
 // 
-// A list of synonyms and/or antonyms -for a definition-. The definition text,
-// as shown in this section, is usually a substring of its corresponding
-// DÉFINITIONS text.
-// The synonyms and antonyms may optionally be hyperlinked to their own pages.
-// Very rarely, a word will have some synonyms and/or antonyms, but no
-// definition (e.g. aguiche). I ignore these ones.
+// A list of synonyms and/or antonyms, often matched with an item from
+// DÉFINITIONS or EXPRESSIONS above. An item from this section is represented
+// by the Relation type.
 // 
 // HOMONYMES
 // 
-// A list of homonyms and/or variants.)
+// A list of homonyms and their types, of provided.
 // 
 // DIFFICULTÉS
 // 
-// Describes irregularities and common mistakes.
+// Irregularities and common mistakes.
+// 
+// CITATIONS
+// 
+// Examples of the word's usage in famous literary or historical works.
 package definition
 
 import (
@@ -102,44 +97,6 @@ func (r Result) equals(q Result) (string, bool) {
 			return message, false
 		}
 	}
-	
-	/*
-	msg, ok := r.equalLens(q)
-	if !ok {
-		return msg, false
-	}
-	
-	msg, ok = r.equalDefinitions(q)
-	if !ok {
-		return msg, false
-	}
-	
-	msg, ok = r.equalExpressions(q)
-	if !ok {
-		return msg, false
-	}
-	
-	msg, ok = r.equalRelations(q)
-	if !ok {
-		return msg, false
-	}
-	
-	msg, ok = r.equalHomonymes(q)
-	if !ok {
-		return msg, false
-	}
-	
-	msg, ok = r.equalDifficultes(q)
-	if !ok {
-		return msg, false
-	}
-	
-	msg, ok = r.equalCitations(q)
-	if !ok {
-		return msg, false
-	}
-	*/
-	
 	return "", true
 }
 
@@ -662,25 +619,6 @@ func findDefinitions(doc *html.Node) ([]Definition, error) {
 	return out, nil
 }
 
-// findDefinitionsFull returns a word's DÉFINITIONS list merged with the
-// corresponding items in the SYNONYMES ET CONTRAIRES list.
-/*
-func findDefinitionsFull(doc *html.Node) ([]Definition, error) {
-	defs, err := findDefinitions(doc)
-	if err != nil {
-		return nil, laroussefr.NewError("findDefinitionsFull", "", err.Error())
-	} else if defs == nil {
-		return nil, nil
-	}
-	
-	rels, err := findRelations(doc)
-	if err != nil {
-		return nil, laroussefr.NewError("findDefinitionsFull", "", err.Error())
-	}
-	out := mergeDefinitionsAndRelations(defs, rels)
-	return out, nil
-}*/
-
 // findExpressions returns a word's EXPRESSIONS list.
 func findExpressions(doc *html.Node) ([]Expression, error) {
 	var out []Expression
@@ -759,28 +697,3 @@ func findCitations(doc *html.Node) ([]Citation, error) {
 	}
 	return out, nil
 }
-
-// mergeDefinitionsAndRelations returns a new slice of Definitions, which is
-// identical to defs but with rels's Synonymes and Contraires.
-/*
-func mergeDefinitionsAndRelations(defs []Definition, rels []Relation) []Definition {
-	var out []Definition
-	for _, d := range defs {
-		for _, r := range rels {
-			r.Texte = strings.TrimRight(r.Texte, " .")
-			if strings.HasPrefix(d.Texte, r.Texte) {
-				if r.hasSynonymes() {
-					d.Synonymes = r.Synonymes
-				}
-				if r.hasContraires() {
-					d.Contraires = r.Contraires
-				}
-				if r.hasSynonymes() || r.hasContraires() {
-					break
-				}
-			}
-		}
-		out = append(out, d)
-	}
-	return out
-}*/

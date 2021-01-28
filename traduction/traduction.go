@@ -434,12 +434,6 @@ func (m *Meaning) updateFromTraductionNode(n *html.Node) {
 			m.Text += " "
 		}
 		m.Text += parse.Traduction(n)
-		/*
-		metalangue2, ok := scrape.Find(n, scrape.ByClass("Metalangue2"))
-		if ok {
-			m.RedMeta = scrape.Text(metalangue2) // for fr->en ordinateur
-		}
-		*/
 }
 
 // Type Phrase represents an example phrase.
