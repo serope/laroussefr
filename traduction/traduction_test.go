@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"testing"
-	"time"
 )
 
 // Type newArg represents args passed to New.
@@ -129,7 +128,6 @@ func TestNewFromFileOrURLBad(t *testing.T) {
 	}
 	
 	for _, b := range badArgs {
-		time.Sleep(3 * time.Second)
 		fmt.Print(b, "\t")
 		_, err := NewFromFileOrURL(b)
 		if err == nil {
@@ -163,7 +161,6 @@ func TestNewFromFileOrURL(t *testing.T) {
 	}
 	
 	for url, word := range table {
-		time.Sleep(5*time.Second)
 		fmt.Print(url, "\t")
 		
 		got, err := NewFromFileOrURL(url)

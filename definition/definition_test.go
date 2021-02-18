@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"testing"
-	"time"
 )
 
 // TestNewBad tests New on bad args.
@@ -35,7 +34,6 @@ func TestNewBad(t *testing.T) {
 	}
 	
 	for _, b := range badArgs {
-		time.Sleep(5 * time.Second)
 		fmt.Print(b, "\t")
 		_, err := New(b)
 		if err == nil {
@@ -58,7 +56,6 @@ func TestNew(t *testing.T) {
 	}
 	
 	for _, w := range words {
-		time.Sleep(5*time.Second)
 		fmt.Print(w, "\t")
 		
 		got, err := New(w)
