@@ -65,6 +65,8 @@ func getHTMLDataFromURL(url string) ([]byte, error) {
 	res, err := http.Get(url)
 	if err != nil {
 		return nil, fmt.Errorf("getHTMLDataFromURL(%s)\nhttp.Get\n%s", url, err.Error())
+	} else if res.StatusCode != 200 {
+		return nil, fmt.Errorf("getHTMLDataFromURL(%s)\nHTTP %d", res.StatusCode)
 	}
 	data, err := ioutil.ReadAll(res.Body)
 	if err != nil {

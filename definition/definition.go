@@ -324,7 +324,7 @@ func (r Relation) equalContraires(q Relation) (string, bool) {
 // RedBig is the definition's context written in large, red, boldfaced text
 // above the definition text.
 // 
-// RedSmall is more specific context written in red text preceeding the
+// RedSmall is more specific context written in red text preceding the
 // definition text.
 type Definition struct {
 	Texte    string
@@ -349,7 +349,7 @@ func (d Definition) equals(e Definition) (string, bool) {
 // RedBig is the definition's context written in large, red, boldfaced text
 // above the definition text.
 // 
-// RedSmall is more specific context written in red text preceeding the
+// RedSmall is more specific context written in red text preceding the
 // definition text.
 type Expression struct {
 	Texte    string
